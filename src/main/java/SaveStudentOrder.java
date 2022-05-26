@@ -4,7 +4,7 @@ public class SaveStudentOrder {
         StudentOrder so = new StudentOrder();
         so.hFirstName = "FK";
         so.hLastName = "GT";
-        so.wFirstName = "UF   ";
+        so.wFirstName = "UF";
         so.wLastName = "GT";
         long ans = saveStudentOrder(so);
         System.out.println(ans);
