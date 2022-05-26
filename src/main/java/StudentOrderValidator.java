@@ -1,16 +1,29 @@
 public class StudentOrderValidator {
     public static void main(String[] args) {
+        StudentOrder so = null;
+
         checkAll();
     }
 
     static void checkAll() {
-        StudentOrder so = readStudentOrder();
-
-        AnswerCityRegister cityAnswer = checkCityRegister(so);
-        AnswerWedding wedAnswer = checkWedding(so);
-        AnswerChildren childAnswer = checkChildren(so);
-        AnswerStudent studentAnswer = checkStudent(so);
-        sendMail(so);
+        while (true) {
+            StudentOrder so = readStudentOrder();
+            System.out.println("Start");
+            if(so == null){
+                break;
+            }
+            System.out.println("Finish");
+            AnswerCityRegister cityAnswer = checkCityRegister(so);
+            if (!cityAnswer.success){
+                System.out.println("file");
+                continue;
+            }
+            AnswerWedding wedAnswer = checkWedding(so);
+            AnswerChildren childAnswer = checkChildren(so);
+            AnswerStudent studentAnswer = checkStudent(so);
+            sendMail(so);
+            so = readStudentOrder();
+        }
     }
 
     static StudentOrder readStudentOrder() {
@@ -20,8 +33,9 @@ public class StudentOrderValidator {
     }
 
     static AnswerCityRegister checkCityRegister(StudentOrder so) {
-        System.out.println("checkWedding");
+        System.out.println("checkCityRegister");
         AnswerCityRegister ans = new AnswerCityRegister();
+        ans.success = false;
         return ans;
     }
 
@@ -34,6 +48,7 @@ public class StudentOrderValidator {
         System.out.println("checkChildren");
         return new AnswerChildren();
     }
+
     static AnswerStudent checkStudent(StudentOrder so) {
         System.out.println("checkCityRegister");
         return new AnswerStudent();
@@ -41,6 +56,7 @@ public class StudentOrderValidator {
 
 
     static void sendMail(StudentOrder so) {
+        System.out.println("send mail");
 
     }
 
