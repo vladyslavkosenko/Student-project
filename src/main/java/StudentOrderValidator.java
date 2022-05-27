@@ -39,18 +39,17 @@ public class StudentOrderValidator {
         crv1.hostName = "Host1";
         crv1.login = "Login1";
         crv1.password = "Password1";
-        CityRegisterValidator crv2 = new CityRegisterValidator();
-        crv2.hostName = "Host2";
-        crv2.login = "Login2";
-        crv2.password = "Password2";
         AnswerCityRegister ans1 = crv1.checkCityRegister(so);
-        AnswerCityRegister ans2 = crv2.checkCityRegister(so);
         return ans1;
     }
 
     static AnswerWedding checkWedding(StudentOrder so) {
-        System.out.println("checkWedding");
-        return new AnswerWedding();
+        CheckWeddingValidator cwv = new CheckWeddingValidator();
+        cwv.hostName = "Host1";
+        cwv.login = "Login1";
+        cwv.password = "Password1";
+        AnswerWedding ans = cwv.checkWedding(so);
+        return ans;
     }
 
     static AnswerChildren checkChildren(StudentOrder so) {

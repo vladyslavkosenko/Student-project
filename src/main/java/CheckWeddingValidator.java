@@ -1,11 +1,11 @@
-public class CityRegisterValidator {
+public class CheckWeddingValidator {
     String hostName;
     String login;
     String password;
 
-    AnswerCityRegister checkCityRegister(StudentOrder so) {
+    AnswerWedding checkWedding(StudentOrder so) {
         System.out.println("checkCityRegister is " + hostName + ", " + login + ", " + password);
-        AnswerCityRegister ans = new AnswerCityRegister();
+        AnswerWedding ans = new AnswerWedding();
         ans.success = false;
         return ans;
     }
